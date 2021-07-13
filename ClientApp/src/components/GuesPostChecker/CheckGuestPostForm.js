@@ -36,7 +36,7 @@ const CheckGuestPostForm = () => {
     //    }.bind(this),2000); 
      }
     const handleSubmission = async (enteredText, data) => {
-      setApiResponse({gotResponse:false})
+      
    
         setsubmiting(true);
         var formdata = new FormData();

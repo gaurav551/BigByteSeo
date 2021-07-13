@@ -92,7 +92,7 @@ namespace BigByteSeo.Controllers
 
             }
         }
-        return dynamic;
+        return Json(dynamic);
     }
     private static async Task<string> GetResponse(string url)
     {
