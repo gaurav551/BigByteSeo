@@ -68,7 +68,7 @@ namespace BigByteSeo.Controllers
 
     
     [Route("findimagelink")]
-    public async Task<dynamic> FindImageLine(string word)
+    public async Task<IActionResult> FindImageLine(string word)
     {
         var dynamic = new List<dynamic>();
         string url = "https://www.bing.com/images/search?q=" + word;
@@ -95,7 +95,7 @@ namespace BigByteSeo.Controllers
 
             }
         }
-        return dynamic;
+        return (IActionResult)dynamic;
     }
     [Route("contactus")]
     [HttpPost]
