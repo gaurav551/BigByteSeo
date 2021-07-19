@@ -106,9 +106,10 @@ namespace BigByteSeo.Controllers
         {
             await _context.Contacts.AddAsync(input);
             await _context.SaveChangesAsync();
-           return Ok();
+           return StatusCode(406);
         }
-        return StatusCode(406);
+        return Ok();
+       
         
         
        

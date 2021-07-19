@@ -23,7 +23,9 @@ export const ImageSearch = () => {
        
          fetch(url)
             .then(response => response.json())
-            .then(responseData=> setimageResponse({data:responseData, isLoading:false}))
+            .then(responseData=> setimageResponse({data:responseData, isLoading:false}, (responseData.total===0 && 
+                openNotification({type:'error',message:`Sorry pal, nothing found from your ${input}`,description:"Please try another keyword"})
+                )))
             .catch(e=> setimageResponse({isLoading:false}, openNotification({type:'error',message:"There was an error " + e,description:""}) ))
           
             
@@ -34,9 +36,11 @@ export const ImageSearch = () => {
        
         if(imageResponse.data && !Object.keys(imageResponse.data).length == 0)
         {
+           
             content =   <div class="card-group"> <Image.PreviewGroup>{imageResponse.data.results.map(x=>  {return <Images src = {x.urls.regular} desc={x.description}/> })} </Image.PreviewGroup>  </div> //imageResponse.data.results.map(x=> {return <img src={x.urls.full}></img> })
            
         }
+        
         
         
 
