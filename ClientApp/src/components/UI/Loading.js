@@ -1,11 +1,8 @@
 import { Spin } from 'antd';
 import 'antd/dist/antd.css'
-
 import React from 'react'
 import ReactDOM from 'react-dom';
 import styles from './Loading.module.css'
-
-
 
 const Loading = ({ name }) => {
     const portalElement = document.getElementById('loadingSpinner');

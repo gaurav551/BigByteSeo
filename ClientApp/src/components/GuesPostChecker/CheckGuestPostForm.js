@@ -35,7 +35,9 @@ const CheckGuestPostForm = () => {
     //         openNotification({type:'success', message:"Cool", desciption:"good job guys"});
     //    }.bind(this),2000); 
      }
+     
     const handleSubmission = async (enteredText, data) => {
+       
       
    
         setsubmiting(true);

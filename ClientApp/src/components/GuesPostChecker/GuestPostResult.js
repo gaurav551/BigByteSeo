@@ -4,7 +4,7 @@ export const GuestPostResult = (props) => {
     return (
         <React.Fragment>
             <br></br>
-            <h5>{props.result.filter((x) => x.isAvailable).length} out of {props.result.length} webiste has guest post availablility</h5>
+            <h5>{props.result.filter(x => x.isAvailable).length} out of {props.result.length} website(s) has guest post availability</h5>
             <div className="list-group">
             {props.result.map(x=>{ 
             let message = "Guest Posting";

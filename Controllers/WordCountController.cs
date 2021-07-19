@@ -27,8 +27,8 @@ namespace BigByteSeo.Controllers
 
            var da = htmlDoc.DocumentNode.SelectNodes(xpath).Select(x=> StringExtensions.StripHTML(x.InnerHtml));
            var result = string.Join("",da);
-            System.Console.WriteLine(StringExtensions.CountWords(result));
-            return Json(result);
+           System.Console.WriteLine(StringExtensions.CountWords(result));
+           return Json(result);
         }
         
     }

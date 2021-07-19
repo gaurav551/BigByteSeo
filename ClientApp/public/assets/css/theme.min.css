@@ -753,8 +753,8 @@ Contact
 .help-block.with-errors {
   position: absolute;
   color: red;
-  right: 15px;
-  font-size: 10px;
+  
+  font-size: 12px;
   line-height: 14px;
 }
 

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using BigByteSeo.Data;
 using BigByteSeo.Models;
 using BigByteSeo.Services;
 using HtmlAgilityPack;
@@ -17,16 +18,19 @@ namespace BigByteSeo.Controllers
     public class HrefController : Controller
     {
         private readonly HrefService hrefService;
-        public HrefController(HrefService hrefService)
+        private readonly ApplicationDbContext _context;
+
+        public HrefController(HrefService hrefService,ApplicationDbContext context)
         {
             this.hrefService = hrefService;
-
+            _context = context;
         }
         [Route("getlinks")]
 
         [HttpPost]
         public async Task<IActionResult> Get([FromForm] InputModel m)
         {
+            
 
             List<GuestPostResult> res = new();
 
@@ -92,7 +96,22 @@ namespace BigByteSeo.Controllers
 
             }
         }
-        return Json(dynamic);
+        return (IActionResult)dynamic;
+    }
+    [Route("contactus")]
+    [HttpPost]
+    public async Task<IActionResult> ContactUs(Contact input)
+    {
+        if(input!=null && _context.Contacts.FirstOrDefault(x=>x.FirstName != input.FirstName)==null)
+        {
+            await _context.Contacts.AddAsync(input);
+            await _context.SaveChangesAsync();
+           return Ok();
+        }
+        return StatusCode(406);
+        
+        
+       
     }
     private static async Task<string> GetResponse(string url)
     {
@@ -100,6 +119,8 @@ namespace BigByteSeo.Controllers
         var res = await _HttpClient.GetStringAsync(url);
         return res;
     }
+    
+    
 
 }
 }

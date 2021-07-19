@@ -18,6 +18,7 @@ import Dictionary from '../components/Dictionary/Dictionary';
 import TextInput from '../components/WordCount/WordCount';
 import FindImageSource from '../components/FindImageSource/FindImageSource';
 import CheckGuestPostForm from '../components/GuesPostChecker/CheckGuestPostForm';
+import { ImageSearch } from '../components/ImageSearch/ImageSearch';
 
 
 const Main = () => {
@@ -39,14 +40,14 @@ const Main = () => {
                     <NavLink className="navbar-brand logo text-primary mb-0 font-w-7" to="/">
                       BIGBYTE<span className="text-dark font-w-4">SEO</span>
                     </NavLink>
+
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav"  ref={collapseRef} >
                       <ul className="navbar-nav mx-auto">
-                        <li className="nav-item"> <NavLink  onClick={hideBars} className="nav-link " to='/about'>About</NavLink>
-                        </li>
-                        <li className="nav-item"> <NavLink  onClick={hideBars} className="nav-link" to='/contact'>Contact</NavLink>
-                        </li>
+                      <div className="d-sm-flex align-items-center justify-content-end"> <NavLink to="/" className="btn btn-primary btn-sm ms-3 d-sm-inline-block d-none" >Home</NavLink>  </div>
+
+                      
                         <li className="nav-item dropdown"> <a className="nav-link dropdown-toggle" href="sub" data-bs-toggle="dropdown">Tools</a>
                           <ul className="dropdown-menu">
                             <li><NavLink  onClick={hideBars} className="dropdown-item" to='site-monitor'>Site monitor</NavLink>
@@ -59,13 +60,19 @@ const Main = () => {
                             </li>
                             <li><NavLink  onClick={hideBars} className="dropdown-item" to='find-image-source'>Find image source</NavLink>
                             </li>
+                            <li><NavLink  onClick={hideBars} className="dropdown-item" to='search-image'>Search Image</NavLink>
+                            </li>
+                           
                            
                             
                           </ul>
                         </li>
+                        <li className="nav-item"> <NavLink  onClick={hideBars} className="nav-link " to='/about'>About</NavLink>
+                        </li>
+                        <li className="nav-item"> <NavLink  onClick={hideBars} className="nav-link" to='/contact'>Contact</NavLink>
+                        </li>
                       </ul>
                     </div>
-                    <div className="d-sm-flex align-items-center justify-content-end"> <NavLink to="/" className="btn btn-primary btn-sm ms-3 d-sm-inline-block d-none" >Home</NavLink>  </div>
                   </nav>
                 </div>
               </div>
@@ -106,6 +113,9 @@ const Main = () => {
             </Route>
             <Route path="/find-image-source">
             <FindImageSource />
+            </Route>
+            <Route path="/search-image">
+            <ImageSearch />
             </Route>
            
            
